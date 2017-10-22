@@ -4,23 +4,68 @@
   <meta charset="UTF-8">
   <title>Example - example-ng-submit-production</title>
   
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  <script src="text.js"></script>
-<script src="email.js"></script>
 
-  
 </head>
 <body>
- 
+	<!-- email.js -->
+	
+	<form ng-submit="submit()" ng-controller="ExampleController">
 
-<form ng-submit="submit()" ng-controller="ExampleController">
-  Enter text and hit enter:
-  <input type="text" ng-model="text" name="text" /><br/>
-  <input type="email" ng-model="email" name="email"><br/>
-  <input type="submit" id="submit" value="Submit" />
-  <pre>list={{list}}</pre>
+ Enter your email:<input type="email" ng-model="jeevan" ><br/>
+
+  Enter the name <input type="text" ng-model="name"><br/>
+
+  Enter the number:<input type="number" ng-model="numb"><br>
+
+  <input type="submit" id="submit" value="submit">
+
+<h1>{{show}}</h1>
+
 </form>
+
+<!-- <script type="text/javascript">
+	angular.module('submitExample', []);
+    .controller('ExampleController', ['$scope', function($scope) {
+      $scope.list = [];
+      $scope.email = '';
+      $scope.submit = function() {
+        if ($scope.email) {
+          $scope.list.push(this.email);
+          $scope.email = '';
+        }
+      };
+    }]);
+</script> -->
+
+<script type="text/javascript">
+	angular.module('submitExample',[])
+	.controller('ExampleController',['$scope',function($scope){
+		$scope.show = [];
+		$scope.jeevan = ''; /*no need to write this line and below the 3 line*/
+		$scope.name = '';
+		$scope.numb = '';
+		$scope.submit = function(){
+			if ($scope.jeevan) {
+				$scope.show.push(this.jeevan);
+				$scope.jeevan = '';
+			}
+			 if($scope.name){
+				$scope.show.push(this.name);
+				$scope.name = '';
+			}
+			if($scope.numb) {
+				$scope.show.push(this.numb);
+				$scope.numb ='';
+			}
+		};
+	}]);
+</script>
+
+
+
+
 </body>
 </html>
 

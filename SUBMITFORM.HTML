@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
 </head>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     angular.module('app', []);
 
 angular.module('app').controller("MainController", function(){
@@ -37,6 +37,21 @@ angular.module('app').controller("MainController", function(){
         vm.new = {};
     };
 });
+</script> -->
+
+
+<script type="text/javascript">
+    var app = angular.module("app",[]);
+    app.controller("MainController",function(){
+        var vm = this;
+        vm.shows=[];
+        vm.new={};
+        vm.addShow= function(){
+            vm.shows.push(vm.new);
+            vm.new={};
+        };
+
+    });
 </script>
 <body >
 <div class="container">
@@ -74,5 +89,7 @@ angular.module('app').controller("MainController", function(){
 
     </form>
 </div>
+
+
 </body>
 </html>
